@@ -22,7 +22,7 @@ export const Level = ({ props }) => {
           className={`item item-${props.level}`}
           src={`../assets/finditemgame/images/item-${props.level}.png`}
           alt="item"
-          onClick={(level) => {
+          onClick={() => {
             playSound();
             setTimeout(() => {
               props.level < 3 && nextLevel();
