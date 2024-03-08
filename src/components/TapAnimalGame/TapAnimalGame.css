@@ -1,0 +1,18 @@
+.animal {
+  width: auto;
+  height: 30vh;
+  filter: drop-shadow(10px 10px 5px #be602c);
+}
+
+.animal-card {
+  border-radius: 10px;
+  margin-bottom: 3vh;
+}
+
+.animal-cards_list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70vw;
+}
