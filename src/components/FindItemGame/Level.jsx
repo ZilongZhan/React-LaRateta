@@ -24,12 +24,13 @@ export const Level = ({ level, handleChangeLevel, isComplete }) => {
   }
 
   //TODO: no styles inline
+  //TODO: optimize images as webp usin squoosh
   return (
     <>
       <style>
         {`
           .level-background {
-            background-image: url("../assets/finditemgame/images/level-${level}.jpg");
+            background-image: url("../assets/finditemgame/images/level-${level}.webp");
           }
         `}
       </style>
