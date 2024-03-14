@@ -2,8 +2,6 @@
 import { Level } from "./Level";
 import { useLevel } from "./hooks";
 
-import "./FindItemGame.css";
-
 export const FindItemGame = () => {
   const { level, handleChangeLevel, isComplete } = useLevel({ threshold: 3 });
 

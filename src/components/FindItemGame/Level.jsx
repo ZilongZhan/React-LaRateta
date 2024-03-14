@@ -1,3 +1,5 @@
+import styles from "./Level.module.css";
+
 // export const Level = ({ props }) => {
 export const Level = ({ level, handleChangeLevel, isComplete }) => {
   const playSound = () => {
@@ -25,24 +27,21 @@ export const Level = ({ level, handleChangeLevel, isComplete }) => {
 
   //TODO: no styles inline
   //TODO: optimize images as webp usin squoosh
+
+  const levelBackgroundModifier = `level-background--${level}`;
+
+  const levelBackgroundClassName = `${styles["level-background"]} ${styles[levelBackgroundModifier]}`;
+
   return (
-    <>
-      <style>
-        {`
-          .level-background {
-            background-image: url("../assets/finditemgame/images/level-${level}.webp");
-          }
-        `}
-      </style>
-      <div className="level-background">
+    <div className={levelBackgroundClassName}>
+      <div className={styles["item-background"]}>
         <img
-          className={`item item-${level}`}
+          className={`${styles["item"]} ${styles[`item-${level}`]}`}
           src={`../assets/finditemgame/images/item-${level}.png`}
           alt="item"
           onClick={handleIncreaseLevel(playSound, isComplete, nextLevel)}
         />
-        {isComplete && <div>OK 🙌</div>}
       </div>
-    </>
+    </div>
   );
 };

@@ -1,0 +1,59 @@
+.level-background {
+  height: 40rem;
+  width: 40rem;
+  position: relative;
+}
+
+.level-background--1 {
+  background: url(../assets/finditemgame/images/level-1.webp) no-repeat center;
+}
+
+.level-background--2 {
+  background: url(../assets/finditemgame/images/level-2.webp) no-repeat center;
+}
+
+.level-background--3 {
+  background: url(../assets/finditemgame/images/level-3.webp) no-repeat center;
+}
+
+.item-background {
+  background-position: center;
+  background-size: cover;
+  border: 8px dashed #be602c;
+  height: inherit;
+  width: inherit;
+  position: absolute;
+}
+
+.item-1 {
+  position: absolute;
+  height: 45vh;
+  right: 0;
+  bottom: 0;
+}
+
+.item-2 {
+  position: absolute;
+  height: 8rem;
+  left: 24rem;
+  top: 20rem;
+}
+
+.item-3 {
+  position: absolute;
+  height: 5vh;
+  top: 25rem;
+  left: 13.75rem;
+}
+
+.altreitem-3 {
+  position: absolute;
+  height: 8vh;
+  top: 80vh;
+  left: 62vh;
+}
+
+.item:hover {
+  filter: drop-shadow(5px 5px 5px rgb(255, 255, 255));
+  cursor: pointer;
+}
