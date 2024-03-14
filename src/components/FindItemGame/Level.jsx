@@ -1,34 +1,46 @@
-export const Level = ({ props }) => {
+// export const Level = ({ props }) => {
+export const Level = ({ level, handleChangeLevel, isComplete }) => {
   const playSound = () => {
     const audio = new Audio(`./assets/finditemgame/audios/correct.mp3`);
     audio.play();
   };
 
   const nextLevel = () => {
-    props.setter(props.level + 1);
+    handleChangeLevel();
   };
 
+  function handleIncreaseLevel(playSound, isComplete, nextLevel) {
+    if (isComplete) {
+      console.log("complete");
+      return;
+    }
+    return () => {
+      playSound();
+      setTimeout(() => {
+        // level < 3 && nextLevel();
+        !isComplete && nextLevel();
+      }, 2000);
+    };
+  }
+
+  //TODO: no styles inline
   return (
     <>
       <style>
         {`
           .level-background {
-            background-image: url("../assets/finditemgame/images/level-${props.level}.jpg");
+            background-image: url("../assets/finditemgame/images/level-${level}.jpg");
           }
         `}
       </style>
       <div className="level-background">
         <img
-          className={`item item-${props.level}`}
-          src={`../assets/finditemgame/images/item-${props.level}.png`}
+          className={`item item-${level}`}
+          src={`../assets/finditemgame/images/item-${level}.png`}
           alt="item"
-          onClick={() => {
-            playSound();
-            setTimeout(() => {
-              props.level < 3 && nextLevel();
-            }, 2000);
-          }}
+          onClick={handleIncreaseLevel(playSound, isComplete, nextLevel)}
         />
+        {isComplete && <div>OK 🙌</div>}
       </div>
     </>
   );

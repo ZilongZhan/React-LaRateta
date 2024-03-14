@@ -1,15 +1,30 @@
-import "./FindItemGame.css";
-import { useState } from "react";
+//fix import order
 import { Level } from "./Level";
+import { useLevel } from "./hooks";
+
+import "./FindItemGame.css";
 
 export const FindItemGame = () => {
-  const [level, setLevel] = useState(1);
+  const { level, handleChangeLevel, isComplete } = useLevel({ threshold: 3 });
 
-  const props = { level: level, setter: setLevel };
+  // const [level, setLevel] = useState(1);
+
+  // const props = { level: level, setter: setLevel };
+
+  // const handleChangeLevel = () => {
+  //   setLevel((prevLevel) => {
+  //     return prevLevel + 1;
+  //   });
+  // };
 
   return (
     <div className="game-display">
-      <Level props={props} />
+      <Level
+        level={level}
+        handleChangeLevel={handleChangeLevel}
+        isComplete={isComplete}
+      />
+      {/* <Level {...{ level: level, setter: setLevel }} /> */}
     </div>
   );
 };
