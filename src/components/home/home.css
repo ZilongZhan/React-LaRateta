@@ -1,0 +1,13 @@
+.titol-image {
+  filter: drop-shadow(10px 10px 5px #be602c);
+  width: auto;
+  height: 55%;
+  transition: 0.5s;
+}
+
+.titol-image:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  transition: 0.5s;
+  filter: drop-shadow(20px 20px 10px #be602c);
+}
