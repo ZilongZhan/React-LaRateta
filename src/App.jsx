@@ -1,7 +1,6 @@
+import { Book, FindItemGame, TapAnimalGame } from "./components";
+
 import "./App.css";
-import { TapAnimalGame } from "./components/index";
-import { FindItemGame } from "./components/index";
-import { Book } from "./components/Book";
 
 function App() {
   return (
