@@ -1,7 +1,5 @@
 import { Book, FindItemGame, TapAnimalGame } from "./components";
 
-import "./App.css";
-
 function App() {
   return (
     <div className="game-window">
