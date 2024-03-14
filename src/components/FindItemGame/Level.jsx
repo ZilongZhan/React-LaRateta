@@ -1,7 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 import styles from "./Level.module.css";
+import { useEffect } from "react";
 
 // export const Level = ({ props }) => {
 export const Level = ({ level, handleChangeLevel, isComplete }) => {
+  const navigate = useNavigate();
+
   const playSound = () => {
     const audio = new Audio(`./assets/finditemgame/audios/correct.mp3`);
     audio.play();
@@ -12,10 +17,12 @@ export const Level = ({ level, handleChangeLevel, isComplete }) => {
   };
 
   function handleIncreaseLevel(playSound, isComplete, nextLevel) {
-    if (isComplete) {
-      console.log("complete");
-      return;
-    }
+    useEffect(() => {
+      if (isComplete) {
+        navigate("/");
+      }
+    }, [isComplete, navigate]);
+
     return () => {
       playSound();
       setTimeout(() => {
