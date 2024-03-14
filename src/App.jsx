@@ -4,13 +4,15 @@ import { Link, Outlet } from "react-router-dom";
 function App() {
   return (
     <div className="game-window">
-      <div className="game-container">
-        {/* <FindItemGame />
-        <TapAnimalGame />
-        <Book />
-        <Puzzle /> */}
+      {/* <Header /> */}
+      {/* <NavBar /> */}
+      <Link to="/Book">Book</Link>
+      <Link to="/find-item-game">FindItemGame</Link>
+      <Link to="/tap-animal-game">TapAnimalGame</Link>
+      <Link to="/Puzzle">Puzzle</Link>
+      <main className="game-container">
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 }
