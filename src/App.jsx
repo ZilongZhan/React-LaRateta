@@ -1,4 +1,4 @@
-import { Book, FindItemGame, TapAnimalGame } from "./components";
+import { Book, FindItemGame, TapAnimalGame, Puzzle } from "./components";
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
         <FindItemGame />
         <TapAnimalGame />
         <Book />
+        <Puzzle />
       </div>
     </div>
   );

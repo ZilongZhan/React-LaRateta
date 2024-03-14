@@ -1,0 +1,23 @@
+.puzzle-board {
+  width: 40vh;
+  height: 40vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.puzzle-piece {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 46px;
+  border: 1px solid black;
+
+  width: 20vh;
+  height: 20vh;
+}
+
+.puzzle-piece:hover {
+  cursor: pointer;
+}
