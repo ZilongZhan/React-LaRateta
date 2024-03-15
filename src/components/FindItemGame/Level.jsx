@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { PlaySound, playConfetti } from "../shared";
+import { PlaySound } from "../shared";
+import { gameFinished } from "../shared/gameFinished";
 
 import styles from "./Level.module.css";
 
@@ -12,12 +13,7 @@ export const Level = ({ level, handleChangeLevel, isComplete }) => {
   };
 
   useEffect(() => {
-    if (isComplete) {
-      playConfetti();
-      setTimeout(() => {
-        window.location.reload();
-      });
-    }
+    gameFinished(isComplete);
   }, [isComplete, navigate]);
 
   function handleIncreaseLevel(isComplete, nextLevel) {

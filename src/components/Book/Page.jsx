@@ -1,5 +1,10 @@
+import { PlaySound } from "../shared";
+
 export const Page = ({ page }) => {
-  console.log(page);
+  const handleTurnPage = () => {
+    PlaySound({ sound: "bell" });
+  };
+
   return (
     <>
       <style>
@@ -26,7 +31,7 @@ export const Page = ({ page }) => {
       <div className={`page page-${page}`}>
         <div className="front-page">
           <img src={`../../../assets/book/page-${page}.jpg`} alt="page" />
-          <label className="next" htmlFor={`checkbox-${page}`}>
+          <label onClick={handleTurnPage} className="next" htmlFor={`checkbox-${page}`}>
             <i>{page}</i>
           </label>
         </div>
