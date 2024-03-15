@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { PuzzlePiece } from "./PuzzlePiece";
+import { PlaySound, playConfetti } from "../shared";
+
 import "./Puzzle.css";
 
 export const Puzzle = () => {
@@ -27,11 +29,11 @@ export const Puzzle = () => {
   const didWin = pieces.every((piece, index) => piece.id === index + 1);
 
   if (didWin) {
+    PlaySound();
+    playConfetti();
     setTimeout(() => {
-      const correctSound = new Audio("../assets/correct.mp3");
-      correctSound.play();
-      setTimeout(() => window.location.reload(), 750);
-    }, 1000);
+      window.location.reload();
+    }, 2000);
   }
 
   const [selectedPiece, setSelectedPiece] = useState(null);

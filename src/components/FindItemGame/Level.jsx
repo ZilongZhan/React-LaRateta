@@ -1,32 +1,29 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { PlaySound, playConfetti } from "../shared";
 
 import styles from "./Level.module.css";
-import { useEffect } from "react";
 
-// export const Level = ({ props }) => {
 export const Level = ({ level, handleChangeLevel, isComplete }) => {
   const navigate = useNavigate();
-
-  const playSound = () => {
-    const audio = new Audio(`./assets/finditemgame/audios/correct.mp3`);
-    audio.play();
-  };
 
   const nextLevel = () => {
     handleChangeLevel();
   };
 
-  function handleIncreaseLevel(playSound, isComplete, nextLevel) {
-    useEffect(() => {
-      if (isComplete) {
-        navigate("/");
-      }
-    }, [isComplete, navigate]);
-
-    return () => {
-      playSound();
+  useEffect(() => {
+    if (isComplete) {
+      playConfetti();
       setTimeout(() => {
-        // level < 3 && nextLevel();
+        window.location.reload();
+      });
+    }
+  }, [isComplete, navigate]);
+
+  function handleIncreaseLevel(isComplete, nextLevel) {
+    return () => {
+      PlaySound();
+      setTimeout(() => {
         !isComplete && nextLevel();
       }, 2000);
     };
@@ -40,15 +37,19 @@ export const Level = ({ level, handleChangeLevel, isComplete }) => {
   const levelBackgroundClassName = `${styles["level-background"]} ${styles[levelBackgroundModifier]}`;
 
   return (
-    <div className={levelBackgroundClassName}>
-      <div className={styles["item-background"]}>
-        <img
-          className={`${styles["item"]} ${styles[`item-${level}`]}`}
-          src={`../assets/finditemgame/images/item-${level}.png`}
-          alt="item"
-          onClick={handleIncreaseLevel(playSound, isComplete, nextLevel)}
-        />
-      </div>
-    </div>
+    <>
+      {!isComplete && (
+        <div className={levelBackgroundClassName}>
+          <div className={styles["item-background"]}>
+            <img
+              className={`${styles["item"]} ${styles[`item-${level}`]}`}
+              src={`../assets/finditemgame/images/item-${level}.png`}
+              alt="item"
+              onClick={() => handleIncreaseLevel(isComplete, nextLevel)()}
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
